@@ -4,13 +4,19 @@ import joblib
 import pandas as pd
 from pathlib import Path
 
-app = FastAPI(title="Spotify Genre Classifier")
+app = FastAPI(
+    title="Spotify Genre Classifier",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
 
 BASE_DIR = Path(__file__).resolve().parent
 model = joblib.load(BASE_DIR.parent / "models" / "gb_pipeline.pkl")
 
+
 class SongInput(BaseModel):
-    track_popularity: float
+    trackpopularity: float
     danceability: float
     energy: float
     key: float
@@ -22,14 +28,20 @@ class SongInput(BaseModel):
     liveness: float
     valence: float
     tempo: float
-    duration_ms: float
+    durationms: float
+
 
 @app.get("/")
 def home():
-    return {"message": "API activa"}
+    from fastapi.responses import RedirectResponse
+
+@app.get("/")
+def home():
+    return RedirectResponse(url="/docs")
+
 
 @app.post("/predict")
 def predict(data: SongInput):
     df_input = pd.DataFrame([data.model_dump()])
     pred = model.predict(df_input)[0]
-    return {"playlist_genre": pred}
+    return {"playlistgenre": pred}
