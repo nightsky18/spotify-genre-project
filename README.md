@@ -1,11 +1,11 @@
-# 🎵 Spotify Genre Classifier
+# Spotify Genre Classifier
 
 Sistema de clasificación de géneros musicales desarrollado con scikit-learn, FastAPI y ngrok.  
 El modelo predice el género de una canción a partir de sus características acústicas extraídas del dataset de Spotify.
 
 ---
 
-## 👥 Integrantes
+## Integrantes
 
 - Mariana Montoya Sepúlveda  
 - María José Arcila  
@@ -13,7 +13,7 @@ El modelo predice el género de una canción a partir de sus características ac
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 spotify-genre-project/
@@ -30,7 +30,7 @@ spotify-genre-project/
 
 ---
 
-## ⚙️ Configuración del entorno
+##  Configuración del entorno
 
 ### Requisitos
 
@@ -66,7 +66,7 @@ pip install numpy==1.26.4 pandas==2.1.4 scikit-learn==1.4.2 scipy==1.11.4 matplo
 
 ---
 
-## 🚀 Ejecutar la API localmente
+## Ejecutar la API localmente
 
 Desde la raíz del proyecto:
 
@@ -82,7 +82,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🌐 Exponer la API públicamente con ngrok
+##  Exponer la API públicamente con ngrok
 
 Ejecuta en el notebook o en una celda aparte:
 
@@ -100,7 +100,7 @@ La URL generada tipo `https://xxxx.ngrok-free.dev` permite consumir la API desde
 
 ---
 
-## 📊 Descripción del dataset
+## Descripción del dataset
 
 El dataset `spotify_songs.csv` contiene canciones de Spotify con características acústicas y metadatos.  
 La variable objetivo es `playlist_genre`, que clasifica cada canción en una de las siguientes categorías:
@@ -126,7 +126,7 @@ Se eliminaron columnas de texto e identificadores como `track_id`, `track_name`,
 
 ---
 
-## 🧹 Data Cleaning
+## Data Cleaning
 
 Se aplicaron los siguientes procesos de limpieza:
 
@@ -137,7 +137,7 @@ Se aplicaron los siguientes procesos de limpieza:
 
 ---
 
-## 🔍 Análisis Exploratorio
+##  Análisis Exploratorio
 
 - Descripción estadística con `.describe()`.
 - Análisis de correlación entre variables numéricas con mapa de calor.
@@ -146,7 +146,7 @@ Se aplicaron los siguientes procesos de limpieza:
 
 ---
 
-## 🛠️ Ingeniería de características
+## Ingeniería de características
 
 No se aplicó ingeniería de características compleja.  
 Se realizó selección de variables mediante análisis de correlación y se excluyeron columnas de identificación y texto.  
@@ -154,7 +154,7 @@ El escalado de datos se incluyó dentro del `Pipeline` del modelo final.
 
 ---
 
-## 🤖 Modelado
+##  Modelado
 
 Se evaluaron múltiples algoritmos de clasificación con scikit-learn.  
 El modelo con mejor desempeño fue **GradientBoostingClassifier**, seleccionado con base en las métricas de accuracy, precision, recall y F1-score en el conjunto de prueba.
@@ -170,7 +170,7 @@ El modelo con mejor desempeño fue **GradientBoostingClassifier**, seleccionado 
 
 ---
 
-## 🔗 Pipeline (scikit-learn)
+## Pipeline (scikit-learn)
 
 Se utilizó la clase `Pipeline` de scikit-learn para encadenar el preprocesamiento (escalado con `StandardScaler`) y el modelo de clasificación en una sola estructura reproducible.
 
@@ -199,7 +199,7 @@ joblib.dump(pipeline, "models/gb_pipeline.pkl")
 
 ---
 
-## 🗳️ Ensamble
+##  Ensamble
 
 Se implementó un `VotingClassifier` con tres estimadores:
 
@@ -213,7 +213,7 @@ Se implementó un `VotingClassifier` con tres estimadores:
 
 ---
 
-## 🚀 FastAPI
+##  FastAPI
 
 Se implementó una API REST con FastAPI que expone el modelo entrenado para realizar predicciones en tiempo real.
 
@@ -257,7 +257,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🔬 PyCaret
+##  PyCaret
 
 PyCaret fue investigado como herramienta de AutoML para automatizar la comparación de modelos.  
 **No fue posible usarlo en este proyecto** porque la librería soporta oficialmente Python 3.9, 3.10 y 3.11, mientras que el entorno de desarrollo utilizó Python 3.12.
@@ -276,7 +276,7 @@ Por esta razón, la comparación de modelos se realizó con scikit-learn, que of
 
 ---
 
-## ✅ Estado del proyecto
+## Estado del proyecto
 
 | Componente | Estado |
 |------------|--------|
